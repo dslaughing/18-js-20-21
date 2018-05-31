@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<input id="name" type="text">   
+		
+		<button id="submit-btn">Submit</button>
+	<script>
+		function $(id){ return document.querySelector(id)}
+		
+		function sayName(){
+			console.log($("#name").value);
+		}
+
+		function clearName(){
+			$("#name").value="";
+		}
+		
+		function addHandler(ele,type,handler){
+			if(ele.addEventListener){
+				ele.addEventListener(type,handler,false);
+			}else if(ele.attachEvent){
+				ele.attachEvent("on"+type,handler);
+			}else{
+				ele["on"+type]=handler;
+			}
+		}
+		
+		addHandler($("#submit-btn"),"click",function(){sayName()})
+		addHandler($("#name"),"keyup",function(e){
+			if(e.keyCode==13){sayName()}
+			if(e.keyCode==27){clearName()}
+		})
+	</script>
+	
+	</body>
+</html>

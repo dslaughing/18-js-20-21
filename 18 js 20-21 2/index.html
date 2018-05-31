@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+    <style>
+        select {
+            display: none;
+        }
+        .selected{
+        	display:block
+        }
+        .notselected{
+        	
+        }
+    </style>
+</head>
+<body>            
+    <label>
+        <input id="school" name="status" type="radio">
+        School
+    </label>
+    <label>
+        <input id="company" name="status" type="radio">
+        Company
+    </label>
+
+    <select id="school-select">        
+        <option>北京邮电大学</option>
+        <option>黑龙江大学</option>
+        <option>华中科技大学</option>
+    </select>
+
+    <select id="company-select">        
+        <option>百度</option>
+        <option>爱奇艺</option>        
+    </select>
+    
+    <script>
+    	function $(id){return document.querySelector(id)}
+    	
+    	$("#school").onclick=function(){
+//  		$("#school-select").classList.add("selected");
+//  		$("#company-select").classList.remove("selected");	
+
+//			$("#school-select").style.cssText="display:block";
+//			$("#company-select").style.cssText="display:none";
+			
+			$("#school-select").setAttribute("class","selected");
+			$("#company-select").setAttribute("class","");
+    	}
+    	$("#company").onclick=function(){
+//  		$("#school-select").classList.remove("selected");
+//  		$("#company-select").classList.add("selected");
+
+//			$("#school-select").style.cssText="display:none";
+//			$("#company-select").style.cssText="display:block";
+			
+			$("#school-select").setAttribute("class","");
+			$("#company-select").setAttribute("class","selected");
+    	}
+    </script>
+</body>
+</html>

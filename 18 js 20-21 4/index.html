@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<div id="fade-obj" style="width:300px;height:300px;background:#000"></div>
+		<button id="fade-btn">淡出</button>
+		<script>
+			$=function(id){return document.querySelector(id)};
+			
+			
+			
+//			$("#fade-btn").onclick=function(){
+//				var a,timer;
+//				$("#fade-btn").disabled=true;
+//				switch($("#fade-btn").innerHTML){	
+//					case "淡出":
+//					a=1;
+//					timer=setInterval(function(){
+//					a=a-0.1;
+//					$("#fade-obj").style.opacity=a;
+//					if(a<=0){
+//						clearInterval(timer)
+//						$("#fade-btn").disabled=false;
+//						$("#fade-btn").innerHTML="淡入";
+//					}
+//				},200)
+//					break;
+//					case "淡入":
+//					a=0;
+//					timer=setInterval(function(){
+//						a=a+0.1;
+//						$("#fade-obj").style.opacity=a;
+//						if(a>=1){
+//							clearInterval(timer)
+//							$("#fade-btn").disabled=false;
+//							$("#fade-btn").innerHTML="淡出";
+//						}
+//					},200)
+//				}
+//			}				
+				
+				$("#fade-btn").onclick=function(){
+					var a,timer;
+					$("#fade-btn").disabled=true;
+					switch($("#fade-btn").innerHTML){
+						case "淡出":
+						a=1;
+						timer=function(){
+							a=a-0.1;
+							$("#fade-obj").style.opacity=a;
+							if(a>0){
+								setTimeout(timer,200);
+							}
+							else{
+								$("#fade-btn").disabled=false;
+								$("#fade-btn").innerHTML="淡入";
+							}
+						}
+						break;
+						case "淡入":
+						a=0;
+						timer=function(){
+							a=a+0.1;
+							$("#fade-obj").style.opacity=a;
+							if(a<1){
+								setTimeout(timer,200);
+							}
+							else{
+								$("#fade-btn").disabled=false;
+								$("#fade-btn").innerHTML="淡出";								
+							}
+						}
+						break;
+					}
+					setTimeout(timer,200);	
+				} 
+				
+				
+
+
+		</script>
+	</body>
+</html>
